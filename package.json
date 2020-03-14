@@ -1,0 +1,25 @@
+{
+  "name": "user-hierarchy",
+  "version": "1.0.0",
+  "description": "user hierarchy with nodejs",
+  "main": "index.js",
+  "repository": "https://github.com/andela-gike/userHierarchy.git",
+  "author": "andela-gike <grace.ike@andela.com>",
+  "license": "MIT",
+  "private": false,
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.8.7",
+    "@babel/node": "^7.8.7",
+    "@babel/preset-env": "^7.8.7",
+    "babel-jest": "^25.1.0",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.1.0",
+    "eslint-plugin-import": "^2.20.1",
+    "jest": "^25.1.0"
+  },
+  "scripts": {
+    "test": "jest",
+    "start": "babel ./src/userHierarchy.js"
+  }
+}
