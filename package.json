@@ -20,6 +20,6 @@
   },
   "scripts": {
     "test": "jest",
-    "start": "babel ./src/userHierarchy.js"
+    "start": "node ./src/userHierarchy.js"
   }
 }
