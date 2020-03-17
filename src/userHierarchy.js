@@ -42,21 +42,21 @@ class Hierarchy {
    */
 
   setRoleIdMapping() {
-    const indexedRoles = {};
-    const root = this.roles.find((r) => r.Parent === 0);
-    indexedRoles[root.Id] = [];
+    const mappedRoles = {};
+    const root = this.roles.find((role) => role.Parent === 0);
+    mappedRoles[root.Id] = [];
 
     this.roles.forEach((role) => {
-      if (indexedRoles[role.Parent] instanceof Array) {
-        indexedRoles[role.Parent].push(role.Id);
+      if (mappedRoles[role.Parent] instanceof Array) {
+        mappedRoles[role.Parent].push(role.Id);
       } else {
-        indexedRoles[role.Parent] = [role.Id];
+        mappedRoles[role.Parent] = [role.Id];
       }
-      if (!indexedRoles[root.Id].includes(role.Id)) {
-        indexedRoles[root.Id].push(role.Id);
+      if (!mappedRoles[root.Id].includes(role.Id)) {
+        mappedRoles[root.Id].push(role.Id);
       }
     });
-    this.idMapping = indexedRoles;
+    this.idMapping = mappedRoles;
   }
 
   /**
@@ -69,13 +69,12 @@ class Hierarchy {
   getSubOrdinates(id) {
     const { Role, Id } = this.users.find((user) => user.Id === id) || {};
     if (!Role) {
-      throw new Error(`User with Role '${id}' not found.`);
+      throw new Error(`A user with role'${id}' is not found.`);
     }
 
     return this.users
       .filter((user) => this.idMapping[Role] && this.idMapping[Role].includes(user.Role)
-        && user.Id !== Id)
-      .sort((first, second) => first.Id - second.Id);
+        && user.Id !== Id);
   }
 }
 

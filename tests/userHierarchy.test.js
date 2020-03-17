@@ -52,13 +52,13 @@ describe('Hierarchy test suite', () => {
   });
 
   test('checks if getSubOrdinates receives an id', () => {
-    expect(() => Hierarchy.getSubOrdinates()).toThrowError(/User with Role /);
+    expect(() => Hierarchy.getSubOrdinates()).toThrowError(/A user with role/);
   });
 
   test('checks if getSubOrdinates receives an id of an existing user', () => {
     Hierarchy.setRoles(mockData.roles);
     Hierarchy.setUsers(mockData.users);
-    expect(() => Hierarchy.getSubOrdinates(90)).toThrowError(/User with Role /);
+    expect(() => Hierarchy.getSubOrdinates(90)).toThrowError(/A user with role/);
   });
 
   test('should return all the subordinates of a user if user exist', () => {
